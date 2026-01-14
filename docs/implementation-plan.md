@@ -334,10 +334,16 @@ Each vocabulary page will have:
    - Test on mobile devices
    - Verify special characters display correctly (á, é, í, ó, ú, ñ, ü)
 
-8. **Deployment options**
-   - GitHub Pages (free, easy setup)
-   - Netlify (drag-and-drop hosting)
-   - Any static web hosting service
+8. **Deploy to AWS S3**
+   - Create S3 bucket with static website hosting enabled
+   - Upload `pages/` folder contents to bucket
+   - Configure bucket policy for public read access
+   - Optional: Add CloudFront CDN for HTTPS and caching
+
+   ```bash
+   # Example deployment command
+   aws s3 sync pages/ s3://your-bucket-name --delete
+   ```
 
 ---
 
@@ -405,7 +411,7 @@ Each vocabulary page will have:
 
 ---
 
-**Version**: 2.2
+**Version**: 2.3
 **Date**: 2026-01-13
 **Data Source**: Real Academia Española (RAE) Corpus
 **Translation**: LLM-based (Claude sub-agents)
